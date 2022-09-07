@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>2048</title>
+    <script src="/scripts/2048.js"></script>
+</head>
+
+<body style="display: flex;
+flex-direction: column;
+align-items: center;
+text-align: center;">
+    <h1>2048</h1>
+    <div id="credits">
+    <h3>By: Dominik Zmuda</h3>
+    <h3>Dev Time: ~2h</h3>
+    </div>
+    <div id="pregame-options">
+        <h4>Choose a size:</h4>
+        <input type="number" id="boardSizeX" value="4" min="2" max="10">
+        <input type="number" id="boardSizeY" value="4" min="2" max="10">
+    </div>
+    </div>
+    <div id="ingame-options">
+        <button onclick="GameStart()">Start Game</button>
+        <button onclick="resetGame()">Reset Game</button>
+        <button onclick="undoMove()">Undo Move</button>
+    </div>
+    <div id="stats">
+        <h4>Score: <span id="score">0</span></h4>
+        <h4>Best Score: <span id="highScore">0</span></h4>
+    </div>
+    <canvas id="canvas"></canvas>
+</body>
+<style>
+   
+    #credits {
+        margin-top: 10px;
+    }
+</style>
+<script>
+    //check if the key pressed is w,a,s,d or arrow keys
+    document.addEventListener('keydown', function(event) {
+        if (event.keyCode == 87 || event.keyCode == 38) {
+            move("up");
+        } else if (event.keyCode == 65 || event.keyCode == 37) {
+            move("left");
+        } else if (event.keyCode == 83 || event.keyCode == 40) {
+            move("down");
+        } else if (event.keyCode == 68 || event.keyCode == 39) {
+            move("right");
+        }
+    });
+</script>
+
+</html>
